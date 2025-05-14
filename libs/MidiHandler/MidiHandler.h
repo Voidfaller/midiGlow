@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <RtMidi.h>
 #include <vector>
+#include <string>
+#include <nlohmann/json.hpp>
+#include <fstream>
 typedef struct
 {
     uint8_t note;
@@ -13,15 +16,15 @@ typedef struct
 
 class MidiHandler
 {
-private:
-    RtMidiIn *midiIn;
-    RtMidiOut *midiOut;
-    bool passThroughMode;
-
 public:
-    MidiHandler(bool passThroughMode = false);
-    ~MidiHandler();
-    void setPassThroughMode(bool passThroughMode);
-    bool getPassThroughMode() const;
-    int init();
+    MidiHandler();     // Constructor with passThroughMode parameter
+    ~MidiHandler();                                     // Destructor
+    int loadConfig(const std::string &configFilePath); // Load configuration from file
+    int init();                                     // Initialize MIDI input and output
+private:
+    RtMidiIn *midiIn = nullptr;   // MIDI input object
+    RtMidiOut *midiOut = nullptr; // MIDI output object
+    bool passThroughMode = false; // MIDI passthrough mode flag
+    int midiInputPort = 0;        // MIDI input port number
+    int midiOutputPort = 0;       // MIDI output port number
 };

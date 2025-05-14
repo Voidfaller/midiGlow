@@ -1,0 +1,5 @@
+{
+    "midiInPort": 1,
+    "midiOutPort": 2,
+    "passThroughMode": false
+}

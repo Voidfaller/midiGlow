@@ -10,3 +10,6 @@ build/
 *.map
 *.hex
 *.exe
+
+# === Config Files ===
+config/ *.json

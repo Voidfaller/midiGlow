@@ -3,7 +3,7 @@ project(midiGlow)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(libs/LedController)
+add_subdirectory(libs/IActuator)
 add_subdirectory(libs/MidiHandler)
 add_subdirectory(external/rtmidi)
 add_subdirectory(external/rpi_ws281x)
@@ -11,6 +11,6 @@ add_subdirectory(external/rpi_ws281x)
 add_executable(midiGlow src/main.cpp)
 
 target_link_libraries(midiGlow
-    LedController
+    IActuator
     MidiHandler
 )
