@@ -46,7 +46,21 @@ int MidiHandler::loadConfig(const std::string &configFilePath)
     return 0;
 }
 
+int MidiHandler::setConfigFilePath(const std::string &configFilePath)
+{
+    this->configFilePath = configFilePath;
+    return 0;
+}
+
 int MidiHandler::init(){
+
+    if(this->configFilePath.empty()){
+        std::cerr << "Config file path is empty. Please set the config file path before initializing." << std::endl;
+        return -1;
+    }
+
+    loadConfig(this->configFilePath);
+
     midiIn->openPort(midiInputPort);
     midiOut->openPort(midiOutputPort);
 

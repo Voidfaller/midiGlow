@@ -4,7 +4,7 @@ int main()
 
     MidiHandler midiHandler;
 
-    midiHandler.loadConfig("../config/config.json");
+    midiHandler.setConfigFilePath("../config/config.json");
     midiHandler.init();
     while (true)
     {
