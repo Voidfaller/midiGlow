@@ -1,0 +1,12 @@
+# === Build Artifacts ===
+build/
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.elf
+*.bin
+*.map
+*.hex
+*.exe
