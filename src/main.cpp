@@ -8,12 +8,8 @@ int main()
     midiHandler.init();
     while (true)
     {
-        if (std::cin.peek() == 'q')
-        {
-            break;
-        }
-        
+        midiHandler.updateNotes();
     }
-    
+
     return 0;
 }
