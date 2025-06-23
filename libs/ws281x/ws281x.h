@@ -1,15 +1,21 @@
-#pragma once
-
+#include <IActuator.h>
 #include <vector>
-#include <cstdint>
-#include <RtMidi.h>
-#include "../rpi_ws281x/ws2811.h"
 
-class IActuator
+class Ws2812Actuator : public IActuator
 {
-    public:
-        virtual ~IActuator() = default; // Virtual destructor for proper cleanup
-        virtual int init() = 0; // Initialize the actuator
-        virtual void onNoteOn(uint8_t note, uint8_t velocity) = 0
-        virtual void onNoteOff(uint8_t note) = 0; // Handle note on and note off events
-}
+public:
+    Ws2812Actuator(int ledCount, int gpioPin = 18);
+    ~Ws2812Actuator();
+
+    int init() override;
+    void onNoteOn(uint8_t note, uint8_t velocity) override;
+    void onNoteOff(uint8_t note) override;
+
+private:
+    int ledCount;
+    int gpioPin;
+    ws2811_t ledStrip;
+    std::vector<uint32_t> ledColors;
+
+    uint32_t colorFromNoteVelocity(uint8_t note, uint8_t velocity);
+};

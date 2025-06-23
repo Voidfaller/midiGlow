@@ -7,7 +7,7 @@ add_subdirectory(libs/IActuator)
 add_subdirectory(libs/MidiHandler)
 add_subdirectory(external/rtmidi)
 add_subdirectory(external/rpi_ws281x)
-add_subdirectory((libs/RotaryEncoder))
+add_subdirectory(libs/RotaryEncoder)
 
 add_executable(midiGlow src/main.cpp)
 

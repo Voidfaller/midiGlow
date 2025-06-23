@@ -5,19 +5,11 @@
 class RotaryEncoder
 {
 private:
-    uint8_t pinA, pinB, pinButton;
-    int _lastState;
-    int _rotation;
-    bool _buttonPressed;
-    unsigned long _lastDebounceTime;
+    uint8_t _pinA, _pinB, _pinButton;
+  
 
 public:
-    RotaryEncoder(uint8_t pinA, uint8_t pinB, uint8_t pinButton);
-    ~RotaryEncoder();
-    void update();
-    int getRotation();
-    bool isButtonPressed();
-
+    RotaryEncoder();
 };
 
 #endif // RE_H

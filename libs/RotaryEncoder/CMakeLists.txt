@@ -1,7 +1,3 @@
-project(midiGlow)
-
-set(SOURCES
-    RotaryEncoder.cpp
-)
-
-add_library(RotaryEncoder STATIC ${SOURCES})
+add_library(RotaryEncoder STATIC RotaryEncoder.cpp)
+target_include_directories(RotaryEncoder PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(RotaryEncoder PUBLIC rtmidi)
